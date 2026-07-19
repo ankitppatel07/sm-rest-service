@@ -31,3 +31,12 @@ build/
 
 ### VS Code ###
 .vscode/
+
+.mvn
+mvnw
+mvnw.cmd
+.project
+.classpath
+.factorypath
+.gitattributes
+HELP.md
