@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.web_service.sm_rest_service.entity.Post;
 import com.web_service.sm_rest_service.entity.User;
+import com.web_service.sm_rest_service.exception.UserNotFoundException;
 import com.web_service.sm_rest_service.repository.PostRepository;
 import com.web_service.sm_rest_service.repository.UserRepository;
 import lombok.AllArgsConstructor;
@@ -44,8 +45,8 @@ public class UserService {
 	public EntityModel<User> retrieveUser(int id) {
 		Optional<User> user = userRepository.findById(id);
 		
-//		if(user.isEmpty())
-//			throw new UserNotFoundException("id:"+id);
+		if(user.isEmpty())
+			throw new UserNotFoundException("id:"+id);
 		
 		EntityModel<User> entityModel = EntityModel.of(user.get());
 		
@@ -64,8 +65,8 @@ public class UserService {
 	public List<Post> retrievePostsForUser(int id) {
 		Optional<User> user = userRepository.findById(id);
 		
-//		if(user.isEmpty())
-//			throw new UserNotFoundException("id:"+id);
+		if(user.isEmpty())
+			throw new UserNotFoundException("id:"+id);
 		
 		return user.get().getPosts();
 	}
@@ -73,8 +74,8 @@ public class UserService {
 	public ResponseEntity<Object> createPostForUser(int id, Post post) {
 		Optional<User> user = userRepository.findById(id);
 		
-//		if(user.isEmpty())
-//			throw new UserNotFoundException("id:"+id);
+		if(user.isEmpty())
+			throw new UserNotFoundException("id:"+id);
 		
 		post.setUser(user.get());
 		
