@@ -16,7 +16,9 @@ import com.web_service.sm_rest_service.entity.User;
 import com.web_service.sm_rest_service.service.UserService;
 
 import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RestController
 public class UserController {
 	

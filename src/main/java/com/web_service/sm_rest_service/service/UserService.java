@@ -46,7 +46,7 @@ public class UserService {
 		Optional<User> user = userRepository.findById(id);
 		
 		if(user.isEmpty())
-			throw new UserNotFoundException("id:"+id);
+			throw new UserNotFoundException("User with ID: "+id+" not found.");
 		
 		EntityModel<User> entityModel = EntityModel.of(user.get());
 		
@@ -66,7 +66,7 @@ public class UserService {
 		Optional<User> user = userRepository.findById(id);
 		
 		if(user.isEmpty())
-			throw new UserNotFoundException("id:"+id);
+			throw new UserNotFoundException("User with ID: "+id+" not found.");
 		
 		return user.get().getPosts();
 	}
@@ -75,7 +75,7 @@ public class UserService {
 		Optional<User> user = userRepository.findById(id);
 		
 		if(user.isEmpty())
-			throw new UserNotFoundException("id:"+id);
+			throw new UserNotFoundException("User with ID: "+id+" not found.");
 		
 		post.setUser(user.get());
 		
