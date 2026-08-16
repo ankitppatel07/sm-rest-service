@@ -26,7 +26,6 @@ import lombok.extern.slf4j.Slf4j;
 @ControllerAdvice
 public class GlobalControllerAdvice extends ResponseEntityExceptionHandler{
 	
-	
 	//to extract request details(Method and URI) for logging purposes.
 	private String getRequestDetails(WebRequest request) {
 		String desc = request.getDescription(false);
