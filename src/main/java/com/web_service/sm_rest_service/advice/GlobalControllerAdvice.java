@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.web_service.sm_rest_service.dto.ErrorResponse;
-import com.web_service.sm_rest_service.dto.Violations;
+import com.web_service.sm_rest_service.dto.common.ErrorResponse;
+import com.web_service.sm_rest_service.dto.common.Violations;
 import com.web_service.sm_rest_service.exception.UserNotFoundException;
 import com.web_service.sm_rest_service.util.AppConstants;
 

@@ -1,4 +1,4 @@
-package com.web_service.sm_rest_service.dto;
+package com.web_service.sm_rest_service.dto.common;
 
 import java.sql.Timestamp;
 import java.util.List;

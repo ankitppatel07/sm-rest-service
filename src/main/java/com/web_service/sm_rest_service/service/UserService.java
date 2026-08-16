@@ -11,11 +11,15 @@ import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import com.web_service.sm_rest_service.dto.UserResponse;
 import com.web_service.sm_rest_service.entity.Post;
 import com.web_service.sm_rest_service.entity.User;
 import com.web_service.sm_rest_service.exception.UserNotFoundException;
 import com.web_service.sm_rest_service.repository.PostRepository;
 import com.web_service.sm_rest_service.repository.UserRepository;
+import com.web_service.sm_rest_service.transformer.UserTransformer;
+
 import lombok.AllArgsConstructor;
 
 @Service
@@ -24,6 +28,7 @@ public class UserService {
 	
 	private UserRepository userRepository;
 	private PostRepository postRepository; 
+	private UserTransformer userTransformer;
 	
 	
 	public URI createUser(User user) {
@@ -38,8 +43,9 @@ public class UserService {
 	}
 	
 	
-	public List<User> retrieveAllUsers() {
-		return userRepository.findAll();
+	public List<UserResponse> retrieveAllUsers() {
+		List<User> users = userRepository.findAll();
+		return userTransformer.toUserResponses(users);
 	}
 	
 	public EntityModel<User> retrieveUser(int id) {
